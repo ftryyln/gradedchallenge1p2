@@ -32,5 +32,10 @@ func main() {
 
 	// Menjalankan server pada railway
 	var PORT = os.Getenv("PORT")
-	http.ListenAndServe(": "+PORT, r)
+	if PORT == "" {
+		PORT = "8080"
+	}
+
+	log.Println("Server running at http://localhost:" + PORT)
+	log.Fatal(http.ListenAndServe(":"+PORT, r))
 }
