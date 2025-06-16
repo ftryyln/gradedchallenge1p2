@@ -32,5 +32,5 @@ func main() {
 
 	// Menjalankan server pada railway
 	var PORT = os.Getenv("PORT")
-	log.Fatal(http.ListenAndServe(": "+PORT, r))
+	http.ListenAndServe(": "+PORT, r)
 }
