@@ -8,6 +8,7 @@ import (
 	"graded-challenge/service"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -29,7 +30,7 @@ func main() {
 	// Setup router dan jalankan HTTP server
 	r := router.SetupRouter(h)
 
-	log.Println("Server running on port 8080")
-	// Menjalankan server pada port 8080
-	log.Fatal(http.ListenAndServe(":8080", r))
+	// Menjalankan server pada railway
+	var PORT = os.Getenv("PORT")
+	log.Fatal(http.ListenAndServe(": "+PORT, r))
 }
